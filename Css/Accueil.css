@@ -1,0 +1,83 @@
+.ul-nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    box-shadow: 0 2px 2px -1px rgb(0, 0, 0);
+    
+    border-radius: 4px;
+}
+
+.ul-nav li {
+    display: inline-block;
+    
+}
+
+.ul-nav li a {
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 30px 60px;
+    
+    text-decoration: none;
+    font-family : Helvetica;
+}
+
+
+.ul-nav li a:hover {
+    background-color: #111;
+} 
+
+body {
+  background-color: #fff;
+  color: #222;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+}
+
+.logo {
+    position: absolute;
+    top:8px;
+    left:7px;
+    height: 79px;
+    border-radius: 1px; 
+}
+
+.projetTable {
+    
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid black;
+    padding : 15px;
+    
+}
+.projetTable tr:nth-child(even){
+   background-color: #D2E0FA;
+}
+.projetTable tr, td {
+    padding: 17px;
+    
+}
+.projetTable th{
+    font-size: 20px;
+}
+
+.ul-module{
+    border-collapse: collapse;
+    border: 1px solid black;
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid black;
+    padding : 15px;
+    list-style-type: none ;
+    font: helvetica;
+}
+.ul-module li:nth-child(even){
+   background-color: #FCFFA8;
+}
+
+.ul-module li{
+    padding:5px;
+}
