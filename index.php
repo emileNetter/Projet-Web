@@ -25,7 +25,7 @@ and open the template in the editor.
         {
             ?>
             <table class = indexTable>
-                <tr><h3>Modules</h3></tr>
+                <th> Modules</th>
                 <tr> 
                     <td width="400px"><?php include 'afficheModules.php';?></td>
                     <td width="1100px"><?php include 'afficheProjets.php';?></td>

@@ -7,6 +7,7 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="Css/Accueil.css">
         <title></title>
     </head>
     <body>
@@ -14,6 +15,7 @@ and open the template in the editor.
             <tr>
                 <th>Projets</th>
                 <th>Modules</th>
+                <th></th>
             </tr>
             
         <?php

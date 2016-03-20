@@ -51,14 +51,18 @@ body {
     border-collapse: collapse;
     border: 1px solid black;
     padding : 15px;
+    font-size: 15px;
     
 }
 .projetTable tr:nth-child(even){
-   background-color: #D2E0FA;
+   background-color: #D7EFF7;
 }
 .projetTable tr, td {
-    padding: 17px;
-    
+    padding: 17px;   
+}
+.projetTable th,td {
+    text-align: left;
+    padding:17px;
 }
 .projetTable th{
     font-size: 20px;
@@ -80,4 +84,24 @@ body {
 
 .ul-module li{
     padding:5px;
+    font-size: 20px;
+}
+
+.projetTable input[type='button']{
+    background: #E27575;
+    border: none;
+    padding: 10px 25px 10px 25px;
+    color: #FFF;
+    box-shadow: 1px 1px 5px #B6B6B6;
+    border-radius: 3px;
+    text-shadow: 1px 1px 1px #9E3F3F;
+    cursor: pointer;
+}
+.projetTable input[type='button']:hover{
+    background: #E34F4F;
+}
+
+.indexTable  {
+    font-size: 20px;
+    padding-top: 15px;
 }

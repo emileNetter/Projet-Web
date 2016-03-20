@@ -25,10 +25,8 @@ function userSave() {
            
             $sql = "INSERT INTO utilisateurs (id, nom, prenom, type, identifiant, mdp) VALUES ('','$_POST[nom]','$_POST[prenom]','$_POST[type]','$_POST[identifiant]','$_POST[mdp]')";
             $result = mysqli_query($tmp,$sql);
-            return $result;
-            
+            return $result;            
         }  
-        
     
 }
 
