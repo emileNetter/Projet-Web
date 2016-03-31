@@ -13,6 +13,12 @@ function projet_search_all()
     $req = mysqli_query($tmp,"SELECT modules.nom as nom_module, projets.* FROM projets INNER JOIN modules ON projets.id_module = modules.id");
     return $req;    
 }
+function projet_search_all_but_me()
+{
+    $tmp= connect_db();
+    $req = mysqli_query($tmp,"SELECT utilisateurs.nom as nom_utilisateur, utilisateurs.prenom, modules.nom as nom_module, projets.* FROM projets,modules,utilisateurs WHERE projets.id_module = modules.id AND projets.id_responsable = utilisateurs.id AND projets.id_responsable !=".$_SESSION['id']);
+    return $req;    
+}
 function my_projet_search()
 {
     $tmp= connect_db();
@@ -69,7 +75,7 @@ function projet_supprime($id,$id_utilisateur)
 function projet_affiche_infos($id)
 {
     $tmp= connect_db();
-    $sql = "SELECT modules.nom as nom_module, utilisateurs.nom as nom_utilisateur, utilisateurs.prenom, projets.* FROM projets JOIN modules ON projets.id_module JOIN utilisateurs ON projets.id_responsable WHERE projets.id=$id";
+    $sql = "SELECT modules.nom as nom_module,utilisateurs.nom as nom_utilisateur, utilisateurs.prenom, projets.* FROM projets,utilisateurs,modules WHERE utilisateurs.id= projets.id_responsable AND projets.id_module = modules.id AND projets.id = ".$id;
     $result = mysqli_query($tmp,$sql);
     $row = $result->fetch_assoc();
     return $row;
@@ -86,4 +92,24 @@ function groupe_sauve($post)
         $_SESSION['message']=$message;
 
     return $message;
+}
+function groupe_supprime($id,$id_utilisateur)
+{
+    $tmp= connect_db();
+    $sql = "SELECT * FROM groupes WHERE id = $id";
+    $result = mysqli_query($tmp,$sql);
+    $row = $result->fetch_assoc();
+    
+     if ($row['id_responsable']==$id_utilisateur)
+     {
+        $sql = "DELETE FROM groupes WHERE id= $row[id]";
+        $result = mysqli_query($tmp,$sql);
+     }
+    return $result;
+}
+function my_group_search()
+{
+    $tmp= connect_db();
+    $req = mysqli_query($tmp,"SELECT groupes.* FROM groupes WHERE id_eleve_participant = ".$_SESSION['id']);
+    return $req;   
 }

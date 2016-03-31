@@ -21,16 +21,20 @@ and open the template in the editor.
         include'db/db_connect.php'  ; 
         include 'db/projet.php';
            
-            $res = my_projet_search();
+            $res = my_group_search();
         
         while ($row = $res->fetch_assoc()) {
             ?>
             
             <?php
             echo '<tr>';
-                echo '<td>'.'<a href="projetAfficheInfos.php?id='.$row['id'].'">'.$row['nom'].'</td>';  
-                echo '<td>'.$row['nom_module'].'</td>';
-                echo '<td>'.'<a href="projetSupprime.php?id='.$row['id'].'"><input type="button" value="Supprimer le projet"></a>'.'</td>';
+                echo '<td>'.'Sujet :'.'</td>';
+                echo '<td>'.'<a href="groupeAfficheInfos.php?id='.$row['id'].'">'.$row['sujet'].'</td>';  
+                if($row['id_responsable']==$_SESSION['id'])
+                {
+                    echo '<td>'.'<a href="groupeSupprime.php?id='.$row['id'].'"><input type="button" value="Supprimer le groupe"></a>'.'</td>';
+                }
+                
             echo '</tr>';
             
             }

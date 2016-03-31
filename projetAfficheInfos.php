@@ -18,8 +18,8 @@ $row = projet_affiche_infos($_GET['id']);
     </tr>
     
     <tr>
-        <td> Nom de l'administrateur :  </td>
-        <td><?php echo $row['nom_utilisateur'] ?></td>
+        <td> Administrateur :  </td>
+        <td><?php echo $row['prenom'].' '.$row['nom_utilisateur'] ?></td>
     </tr>
     
     <tr>
