@@ -21,8 +21,21 @@ and open the template in the editor.
            echo "<ul class='ul-nav'>
                     <li><a href='index.php' class='logo-link'><img class='logo' src='Images/Logo.png' alt='Logo de l\'ENSC' height='50' ></a></li>
                     <ul style='float:right; list-style-type: none;'>
-                        <li><a href='creerProjet.php'> Créer un projet</a></li>
-                        <li><a href='gererProjets.php'> Gérer mes projets</a></li>
+                        <li><a href='index.php'> Accueil</a></li>
+                        <li class='dropdown'>
+                            <a href='mesGroupes.php'> Mes Groupes</a>
+                                <div class='dropdown-content'>
+                                <a href='creerGroupe.php'> Créer un groupe</a>
+                                <a href='candidaterGroupe.php'> Candidater à un groupe</a>
+                                </div>
+                        </li>
+                        <li class='dropdown'>
+                            <a href='mesProjets.php'> Mes Projets</a>
+                                <div class='dropdown-content'>
+                                <a href='creerProjet.php'> Créer un projet</a>
+                                <a href='candidaterProjet.php'> Candidater à un projet</a>
+                                </div>
+                        </li>
                         <li><a href='logout.php'>Bonjour $_SESSION[prenom], Déconnexion</a></li>  
                     </ul>
                 </ul> " ;

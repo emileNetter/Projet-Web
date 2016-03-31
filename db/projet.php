@@ -13,12 +13,19 @@ function projet_search_all()
     $req = mysqli_query($tmp,"SELECT modules.nom as nom_module, projets.* FROM projets INNER JOIN modules ON projets.id_module = modules.id");
     return $req;    
 }
-
+function my_projet_search()
+{
+    $tmp= connect_db();
+    $req = mysqli_query($tmp,"SELECT modules.nom as nom_module, projets.* FROM projets,modules WHERE projets.id_module = modules.id AND projets.id_responsable = ".$_SESSION['id']);
+    return $req;   
+}
 function projet_sauve($post)
 {
     $tmp= connect_db();
      if (projet_verifie_nom($post[nom]))
      {
+        $post[nom]=  addslashes($post[nom]);
+        $post[description] = addslashes($post[description]);
         $sql = "INSERT INTO projets (id, nom, id_responsable, id_module, description) VALUES ('','$post[nom]','$_SESSION[id]','$post[id_module]','$post[description]')";
         $result = mysqli_query($tmp,$sql);
         $message = mysqli_error($tmp);
@@ -68,4 +75,15 @@ function projet_affiche_infos($id)
     return $row;
 }
 
+function groupe_sauve($post)
+{
+    $tmp= connect_db();
+        $post[sujet]=  addslashes($post[sujet]);
+        $post[description] = addslashes($post[description]);       
+        $sql = "INSERT INTO groupes (id,sujet,description, id_responsable,id_eleve_participant) VALUES ('','$post[sujet]','$post[description]','$_SESSION[id]','$_SESSION[id]')";
+        $result = mysqli_query($tmp,$sql);
+        $message = mysqli_error($tmp);
+        $_SESSION['message']=$message;
 
+    return $message;
+}

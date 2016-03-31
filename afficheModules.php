@@ -16,10 +16,13 @@ and open the template in the editor.
         include 'db/module.php';
         $req = module_search_all();
         
+        echo '<h3>'."Modules".'</h3>';
         echo '<ul class="ul-module" >';
+        
         while ($row = $req->fetch_assoc()) {
             ?>
             <?php
+            
             echo '<li>'.'<a href="index.php?module='.$row['id'].'"'.'><input type="button" /></a>' .$row['nom'].'</li>';   
         }
         

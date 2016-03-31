@@ -3,9 +3,8 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #444;
     box-shadow: 0 2px 2px -1px rgb(0, 0, 0);
-    
     border-radius: 4px;
 }
 
@@ -18,8 +17,7 @@
     display: block;
     color: #fff;
     text-align: center;
-    padding: 30px 60px;
-    
+    padding: 30px 60px; 
     text-decoration: none;
     font-family : Helvetica;
 }
@@ -47,11 +45,15 @@ body {
 
 .projetTable {
     
-    width: 80%;
-    border-collapse: collapse;
-    border: 1px solid black;
-    padding : 15px;
+    width: 50%;
+    border-collapse: collapse;  
+    padding: 20px 20px 20px 20px;
     font-size: 15px;
+    border-radius : 4px;
+    box-shadow: 0 2px 2px -1px rgb(207, 2539, 250);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
     
 }
 .projetTable tr:nth-child(even){
@@ -66,6 +68,7 @@ body {
 }
 .projetTable th{
     font-size: 20px;
+    padding: 20px 20px 20px 20px;
 }
 
 .ul-module{
@@ -105,3 +108,45 @@ body {
     font-size: 20px;
     padding-top: 15px;
 }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #595959;
+    min-width: 50px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.dropdown-content a {
+    color: blue;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+a {
+  text-decoration: underline;
+  color: blue;
+}
+a:visited {
+  color: blue;
+}
+a:hover, a:focus, a:active {
+  text-decoration: none;
+  color: blue;
+}
+
+hr { 
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+} 

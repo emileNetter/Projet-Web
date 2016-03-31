@@ -7,4 +7,4 @@ include'db/projet.php';
                 session_start();
             }
 projet_supprime($_GET['id'],$_SESSION['id']);
-header('Location: index.php');
+header('Location: mesProjets.php');
