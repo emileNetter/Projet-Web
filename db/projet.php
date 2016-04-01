@@ -113,3 +113,9 @@ function my_group_search()
     $req = mysqli_query($tmp,"SELECT groupes.* FROM groupes WHERE id_eleve_participant = ".$_SESSION['id']);
     return $req;   
 }
+function group_search_all_but_me()
+{
+    $tmp= connect_db();
+    $req = mysqli_query($tmp,"SELECT groupes.*, utilisateurs.nom, utilisateurs.prenom FROM groupes,utilisateurs WHERE groupes.id_responsable = utilisateurs.id AND groupes.id_eleve_participant !=".$_SESSION['id']);
+    return $req;
+}

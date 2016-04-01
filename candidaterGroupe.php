@@ -11,34 +11,34 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <table class="projetTable">
+        <?php
+        include'db/db_connect.php';
+        include'db/projet.php';
+        include'header.php';
+        ?>
+        <table class="candidaterTable">
             <tr>
-                <th> Mes Groupes </th>    
+                <th>Groupes </th>  
+                <th>Responsable</th>
+                <th></th>
             </tr> 
            
         <?php
-        include 'header.php';
-        include'db/db_connect.php'  ; 
-        include 'db/projet.php';
-           
-            $res = my_group_search();
+        
+        $res = group_search_all_but_me();
         
         while ($row = $res->fetch_assoc()) {
             ?>
             
             <?php
             echo '<tr>';
-                echo '<td>'.'Sujet :'.'</td>';
                 echo '<td>'.'<a href="groupeAfficheInfos.php?id='.$row['id'].'">'.$row['sujet'].'</td>';  
-                if($row['id_responsable']==$_SESSION['id'])
-                {
-                    echo '<td>'.'<a href="groupeSupprime.php?id='.$row['id'].'"><input type="button" value="Supprimer le groupe"></a>'.'</td>';
-                }
-                
+                echo '<td>'.$row['prenom'].' '.$row['nom'];
+                echo '<td>'.'<a href="candidaterGroupe.php?id='.$row['id'].'"><input type="button" value="Rejoindre ce groupe"></a>'.'</td>';
             echo '</tr>';
             
             }
         ?>
-        </table>     
+        </table> 
     </body>
 </html>
