@@ -92,7 +92,11 @@ function groupe_sauve($post)
         $sql1 = "INSERT INTO groupes_utilisateurs (id_groupe,id_utilisateur,role,statut,message) VALUES ('$lastId','$_SESSION[id]','administrateur','terminé','') ";
         mysqli_query($tmp,$sql1);
         $message = mysqli_error($tmp);
-        $_SESSION['message']=$message;
+        if($message!='')
+        {
+           $_SESSION['message']=$message; 
+        }
+        
 
     return $message;
 }
@@ -121,7 +125,7 @@ function groupe_supprime($id,$id_utilisateur)
 function my_group_search()
 {
     $tmp= connect_db();
-    $req = mysqli_query($tmp,"SELECT groupes.* FROM groupes WHERE id_eleve_participant = ".$_SESSION['id']);
+    $req = mysqli_query($tmp,"SELECT * from groupes INNER JOIN groupes_utilisateurs ON groupes.id = groupes_utilisateurs.id_groupe WHERE groupes_utilisateurs.id_utilisateur=$_SESSION[id] AND statut='terminé' GROUP BY groupes_utilisateurs.id_groupe, groupes_utilisateurs.id_utilisateur");
     return $req;   
 }
 function group_search_all_but_me()

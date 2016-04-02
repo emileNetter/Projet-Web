@@ -29,12 +29,13 @@ and open the template in the editor.
             <?php
             echo '<tr>';
                 echo '<td>'.'Sujet :'.'</td>';
-                echo '<td>'.'<a href="groupeAfficheInfos.php?id='.$row['id'].'">'.$row['sujet'].'</td>';  
+                echo '<td>'.'<a href="groupeAfficheInfos.php?id='.$row['id'].'">'.$row['sujet'].'</td>'; 
+                echo '<td>';
                 if($row['id_responsable']==$_SESSION['id'])
                 {
-                    echo '<td>'.'<a href="groupeSupprime.php?id='.$row['id'].'"><input type="button" value="Supprimer le groupe"></a>'.'</td>';
+                    echo '<a href="groupeSupprime.php?id='.$row['id'].'"><input type="button" value="Supprimer le groupe"></a>';
                 }
-                
+                echo '</td>';
             echo '</tr>';
             
             }
