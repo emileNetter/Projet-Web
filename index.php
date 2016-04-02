@@ -17,8 +17,7 @@ and open the template in the editor.
         include 'ConnectionFunction.php' ;
         ConnectionFunction();
         include'header.php';
-        include'utils/utils.php';
-        message_affiche();
+        // message_affiche();
         include 'db/db_connect.php';
         
         if (isset ($_SESSION['nom']))

@@ -284,3 +284,10 @@ a:hover, a:focus, a:active {
 .candidatureEnAttente input[type='button']:hover{
     background: #E34F4F;
 }
+
+.message {
+    margin-left:auto;
+    margin-right: auto;
+    padding: 20px;
+    background-color: red;
+}

@@ -27,8 +27,8 @@ and open the template in the editor.
             <?php
             echo '<tr>';
                 echo '<td>'.$row['prenom'].' '.$row['nom_utilisateur'].' veut rejoindre le groupe '.$row['sujet'].'</td>'; 
-                echo '<td>'.'<a href="accepterCandidatureGroupe.php?id='.$row['id_groupe'].'"><input type="button" value="Accepter"></a>'.'</td>';
-                echo '<td>'.'<a href="refuserCandidatureGroupe.php?id='.$row['id_groupe'].'"><input type="button" value="Refuser"></a>'.'</td>';
+                echo '<td>'.'<a href="modifierCandidatureGroupe.php?id='.$row['id'].'&statut=terminé"><input type="button" value="Accepter"></a>'.'</td>';
+                echo '<td>'.'<a href="modifierCandidatureGroupe.php?id='.$row['id'].'&statut=refusé"><input type="button" value="Refuser"></a>'.'</td>';
             echo '</tr>';
             
             }
