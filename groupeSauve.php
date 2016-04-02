@@ -9,5 +9,5 @@ include 'header.php';
         }
         else
         {
-            header('Location: index.php');
+            header('Location: mesGroupes.php');
         }

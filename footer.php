@@ -19,7 +19,7 @@ and open the template in the editor.
 		·
 		<a href="https://www.ensc.fr">L'ENSC</a>
 		·
-		<a href="ent.ipb.fr">L'ENT</a>
+		<a href="https://ent.ipb.fr">L'ENT</a>
 		
             </p>
             <p class="footer-company-name">NETTER-AUBIN © 2016</p>

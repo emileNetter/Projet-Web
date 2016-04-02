@@ -1,3 +1,4 @@
+
 .ul-nav {
     list-style-type: none;
     margin: 0;
@@ -180,14 +181,14 @@ a:hover, a:focus, a:active {
     background: #E34F4F;
 }
 .footer-basic{
+       
 	background-color: #292c2f;
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
 	box-sizing: border-box;
 	width: 100%;
 	text-align: center;
 	font: normal 18px sans-serif;
-
-	padding: 45px;
+	padding: 35px;
 	margin-top: 80px;
 }
 
@@ -217,9 +218,8 @@ a:hover, a:focus, a:active {
 	color: inherit;
 }
 
-/* If you don't want the footer to be responsive, remove these media queries */
 
-/*@media (max-width: 600px) {
+@media (max-width: 600px) {
 
 	.footer-basic{
 		padding: 35px;
@@ -241,4 +241,46 @@ a:hover, a:focus, a:active {
 	.footer-basic .footer-links a{
 		line-height: 1.8;
 	}
-}*/
+}
+.candidatureEnAttente {
+    
+    width: 50%;
+    border-collapse: collapse;  
+    padding: 20px 20px 20px 20px;
+    font-size: 15px;
+    border-radius : 4px;
+    box-shadow: 0 2px 2px -1px rgb(207, 2539, 250);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    font-family: helvetica;
+    
+}
+.candidatureEnAttente tr:nth-child(even){
+   background-color: #F0BDAD;
+}
+.candidatureEnAttente tr, td {
+    padding: 17px;
+    
+}
+.candidatureEnAttente th,td {
+    text-align: left;
+    padding:17px;
+}
+.candidatureEnAttente th{
+    font-size: 20px;
+    padding: 20px 20px 20px 20px;
+}
+.candidatureEnAttente input[type='button']{
+    background: #E27575;
+    border: none;
+    padding: 10px 25px 10px 25px;
+    color: #FFF;
+    box-shadow: 1px 1px 5px #B6B6B6;
+    border-radius: 3px;
+    text-shadow: 1px 1px 1px #9E3F3F;
+    cursor: pointer;
+}
+.candidatureEnAttente input[type='button']:hover{
+    background: #E34F4F;
+}

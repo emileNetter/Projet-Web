@@ -36,6 +36,7 @@ and open the template in the editor.
                                 <a href='candidaterProjet.php'> Candidater à un projet</a>
                                 </div>
                         </li>
+                        <li><a href='gererCandidature.php'>Gérer les candidatures</a></li>  
                         <li><a href='logout.php'>Bonjour $_SESSION[prenom], Déconnexion</a></li>  
                     </ul>
                 </ul> " ;

@@ -15,15 +15,13 @@ and open the template in the editor.
             <tr>
                 <th> Mes Projets  </th> 
                 <th> Modules </th> 
-            </tr> 
-            
-            
+            </tr>   
         <?php
         include 'header.php';
         include'db/db_connect.php'  ; 
         include 'db/projet.php';
            
-            $res = my_projet_search();
+        $res = my_projet_search();
         
         while ($row = $res->fetch_assoc()) {
             ?>

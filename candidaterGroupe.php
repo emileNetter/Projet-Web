@@ -34,7 +34,7 @@ and open the template in the editor.
             echo '<tr>';
                 echo '<td>'.'<a href="groupeAfficheInfos.php?id='.$row['id'].'">'.$row['sujet'].'</td>';  
                 echo '<td>'.$row['prenom'].' '.$row['nom'];
-                echo '<td>'.'<a href="candidaterGroupe.php?id='.$row['id'].'"><input type="button" value="Rejoindre ce groupe"></a>'.'</td>';
+                echo '<td>'.'<a href="formulaireRejoindreGroupe.php?id='.$row['id'].'"><input type="button" value="Rejoindre ce groupe"></a>'.'</td>';
             echo '</tr>';
             
             }

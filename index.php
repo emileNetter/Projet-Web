@@ -47,7 +47,7 @@ and open the template in the editor.
             <p>Si vous n'avez pas encore de compte, inscrivez-vous, sinon connectez-vous !</p>
             <?php
         }
-        include'footer.php';    
+//        include'footer.php';    
        ?>
        
     </body>
