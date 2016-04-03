@@ -84,14 +84,17 @@ function projet_affiche_infos($id)
 function groupe_sauve($post)
 {
         $tmp= connect_db();
-        $post[sujet]=  addslashes($post[sujet]);
-        $post[description] = addslashes($post[description]);       
-        $sql = "INSERT INTO groupes (id,sujet,description, id_responsable,id_eleve_participant) VALUES ('','$post[sujet]','$post[description]','$_SESSION[id]','$_SESSION[id]')"; 
+        $post['sujet']=  addslashes($post['sujet']);
+        $post['description'] = addslashes($post['description']);       
+        $sql = "INSERT INTO groupes (id,sujet,description, id_responsable,id_eleve_participant,id_projet) VALUES ('','$post[sujet]','$post[description]','$_SESSION[id]','$_SESSION[id]','$post[id_projet]')"; 
         mysqli_query($tmp,$sql);
+        $message = mysqli_error($tmp);
+//        if($message='') {
         $lastId=mysqli_insert_id($tmp);
         $sql1 = "INSERT INTO groupes_utilisateurs (id_groupe,id_utilisateur,role,statut,message) VALUES ('$lastId','$_SESSION[id]','administrateur','terminé','') ";
         mysqli_query($tmp,$sql1);
         $message = mysqli_error($tmp);
+//        }
         if($message!='')
         {
            $_SESSION['message']=$message; 
@@ -106,14 +109,16 @@ function groupe_supprime($id,$id_utilisateur)
     $sql = "SELECT * FROM groupes WHERE id = $id";
     $result = mysqli_query($tmp,$sql);
     $row = $result->fetch_assoc();
-    
+//    $_SESSION['message'] ="id= $id / user_id= $id_utilisateur / Resultat = ".$sql;
      if ($row['id_responsable']==$id_utilisateur)
      {
         $sql1="DELETE FROM groupes_utilisateurs WHERE id_groupe=$id";
         mysqli_query($tmp,$sql1);
         $sql = "DELETE FROM groupes WHERE id=$id";
         $result = mysqli_query($tmp,$sql);
+        
      }
+    
     if (!$result) {
         die('Impossible d\'exécuter la requête :' . mysql_error());
     }
@@ -122,11 +127,26 @@ function groupe_supprime($id,$id_utilisateur)
         return $result;
     }
 }
-function my_group_search()
+function my_group_search($id_projet)
 {
     $tmp= connect_db();
-    $req = mysqli_query($tmp,"SELECT * from groupes INNER JOIN groupes_utilisateurs ON groupes.id = groupes_utilisateurs.id_groupe WHERE groupes_utilisateurs.id_utilisateur=$_SESSION[id] AND statut='terminé' GROUP BY groupes_utilisateurs.id_groupe, groupes_utilisateurs.id_utilisateur");
+    $req = mysqli_query($tmp,"SELECT * from groupes INNER JOIN groupes_utilisateurs ON groupes.id = groupes_utilisateurs.id_groupe WHERE groupes_utilisateurs.id_utilisateur=$_SESSION[id] AND statut='terminé' AND id_projet=$id_projet GROUP BY groupes_utilisateurs.id_groupe, groupes_utilisateurs.id_utilisateur");
     return $req;   
+}
+function search_all_group_per_projet($id_projet)
+{
+    $tmp= connect_db();
+    $sql="SELECT * from groupes INNER JOIN groupes_utilisateurs ON groupes.id = groupes_utilisateurs.id_groupe WHERE  statut='terminé' AND id_projet=$id_projet AND role='administrateur' GROUP BY groupes_utilisateurs.id_groupe, groupes_utilisateurs.id_utilisateur";
+    $req=  mysqli_query($tmp, $sql);
+    return $req;
+    
+}
+function cherche_mes_groupes()
+{
+    $tmp= connect_db();
+    $sql="SELECT * from groupes INNER JOIN groupes_utilisateurs ON groupes.id = groupes_utilisateurs.id_groupe WHERE groupes_utilisateurs.id_utilisateur=$_SESSION[id] AND statut='terminé' GROUP BY groupes_utilisateurs.id_groupe, groupes_utilisateurs.id_utilisateur";
+    $result=  mysqli_query($tmp, $sql);
+    return $result;
 }
 function group_search_all_but_me()
 {
@@ -200,4 +220,52 @@ function cherche_id_groupe_demande ($id_candidature)
     $result = mysqli_query($tmp,$sql);
     $row = $result->fetch_assoc();
     return $row['id_groupe'];
+}
+
+function projet_responsable($id_projet)
+{
+    $tmp = connect_db();
+    $sql="SELECT id_responsable FROM projets WHERE id=$id_projet";
+    $result = mysqli_query($tmp,$sql);
+    $row = $result->fetch_assoc();
+    return $row['id_responsable'];
+    
+}
+
+function module_sauve($post)
+{
+    $tmp = connect_db();
+    $sql="INSERT INTO modules (id,nom,id_responsable,description_module) VALUES ('','$post[nom_module]','$_SESSION[id]','$post[description_module]')";
+    mysqli_query($tmp, $sql);
+}
+
+function my_module_search($id_utilisateur)
+{
+    $tmp =connect_db();
+    $sql="SELECT * FROM modules WHERE id_responsable=$id_utilisateur";
+    $req = mysqli_query($tmp, $sql);
+    return $req;
+}
+
+function module_supprime($id_module,$id_utilisateur)
+{
+    $tmp= connect_db();
+    $sql = "SELECT * FROM modules WHERE id = $id_module";
+    $result = mysqli_query($tmp,$sql);
+    $row = $result->fetch_assoc();
+    
+     if ($row['id_responsable']==$id_utilisateur)
+     {
+        $sql="DELETE FROM modules WHERE id=$id_module";
+        $result= mysqli_query($tmp,$sql);
+     }
+     
+      if (!$result) {
+        die('Impossible d\'exécuter la requête :' . mysql_error());
+    }
+    else
+    {
+        return $result;
+    }
+   
 }

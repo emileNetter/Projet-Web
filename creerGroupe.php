@@ -15,7 +15,8 @@ and open the template in the editor.
         <?php
         include 'header.php';
         ?>
-        <form method ="post" action ="groupeSauve.php" class="basic-grey">                      
+        <form method ="post" action ="groupeSauve.php" class="basic-grey">
+            <input type="hidden" name ="id_projet" value="<?php echo $_GET['id'] ?>" />
             <label for="sujet">
                 <span> Sujet </span>
                 <input type="text" name ="sujet" id="sujet" /><br>

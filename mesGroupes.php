@@ -1,27 +1,21 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="Css/Accueil.css">
-        <meta charset="UTF-8">
-        <title></title>
-    </head>
-    <body>
-        <table class="projetTable">
+
+        <table class="groupe-projet-affiche">
             <tr>
-                <th> Mes Groupes </th>    
+                <th> Groupes du projet : <?php echo $row['nom'] ;?> </th> 
+                
+                <?php
+                if ($_SESSION['id']== projet_responsable($_GET['id']))
+                {
+                    echo '<th>'.'<a href="creerGroupe.php?id='.$_GET['id'].'"><input type="button" value="Ajouter un groupe"></a>'.'</th>';
+                }
+                
+                ?>
+              
             </tr> 
            
         <?php
-        include 'header.php';
-        include'db/db_connect.php'  ; 
-        include 'db/projet.php';
-           
-            $res = my_group_search();
+       
+            $res = search_all_group_per_projet($_GET['id']);
         
         while ($row = $res->fetch_assoc()) {
             ?>
@@ -29,17 +23,17 @@ and open the template in the editor.
             <?php
             echo '<tr>';
                 echo '<td>'.'Sujet :'.'</td>';
-                echo '<td>'.'<a href="groupeAfficheInfos.php?id='.$row['id'].'">'.$row['sujet'].'</td>'; 
+                echo '<td>'.'<a href="groupeAfficheInfos.php?id='.$row['id_groupe'].'">'.$row['sujet'].'</td>'; 
                 echo '<td>';
                 if($row['id_responsable']==$_SESSION['id'])
                 {
-                    echo '<a href="groupeSupprime.php?id='.$row['id'].'"><input type="button" value="Supprimer le groupe"></a>';
+                    echo '<a href="groupeSupprime.php?id='.$row['id_groupe'].'&projet_id='.$_GET['id'].'"><input type="button" value="Supprimer le groupe"></a>';
                 }
                 echo '</td>';
+                echo '<td>'.'<a href="formulaireRejoindreGroupe.php?id='.$row['id_groupe'].'&projet_id='.$_GET['id'].'"><input type="button" value="Rejoindre ce groupe"></a>'.'</td>';
             echo '</tr>';
-            
+                
             }
+            
         ?>
         </table>     
-    </body>
-</html>

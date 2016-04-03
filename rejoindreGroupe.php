@@ -5,4 +5,4 @@ include 'db/projet.php';
 
 rejoindre_groupe($_POST);
 
-header('Location: candidaterGroupe.php');
+header('Location: projetAfficheInfos.php?id='.$_POST['projet_id']);

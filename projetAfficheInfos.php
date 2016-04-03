@@ -5,6 +5,7 @@ include'db/db_connect.php';
 include'db/projet.php';
 include'header.php';
 $row = projet_affiche_infos($_GET['id']);
+
 ?>
 <table class='table-affiche-infos'>
     <tr>
@@ -27,7 +28,8 @@ $row = projet_affiche_infos($_GET['id']);
         <td><?php echo $row['description'] ?></td>
     </tr>
 </table>
-
+<?php
+include'mesGroupes.php';
 
 
 

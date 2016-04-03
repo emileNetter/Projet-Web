@@ -289,5 +289,87 @@ a:hover, a:focus, a:active {
     margin-left:auto;
     margin-right: auto;
     padding: 20px;
-    background-color: red;
+    
+}
+
+.moduleTable {
+    
+    width: 50%;
+    border-collapse: collapse;  
+    padding: 20px 20px 20px 20px;
+    font-size: 15px;
+    border-radius : 4px;
+    box-shadow: 0 2px 2px -1px rgb(207, 2539, 250);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    
+}
+.moduleTable tr:nth-child(even){
+   background-color: #C2C2C2;
+}
+.moduleTable tr, td {
+    padding: 17px;   
+}
+.moduleTable th,td {
+    text-align: left;
+    padding:17px;
+}
+.moduleTable th{
+    font-size: 20px;
+    padding: 20px 20px 20px 20px;
+}
+.moduleTable input[type='button']{
+    background: #E27575;
+    border: none;
+    padding: 10px 25px 10px 25px;
+    color: #FFF;
+    box-shadow: 1px 1px 5px #B6B6B6;
+    border-radius: 3px;
+    text-shadow: 1px 1px 1px #9E3F3F;
+    cursor: pointer;
+}
+.moduleTable input[type='button']:hover{
+    background: #E34F4F;
+}
+
+.groupe-projet-affiche {
+    
+    width: 60%;
+    border-collapse: collapse;  
+    padding: 20px 20px 20px 20px;
+    font-size: 15px;
+    border-radius : 4px;
+    box-shadow: 0 2px 2px -1px rgb(207, 2539, 250);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    
+}
+.groupe-projet-affiche tr:nth-child(even){
+   background-color: #C2C2C2;
+}
+.groupe-projet-affiche tr, td {
+    padding: 17px;   
+}
+.groupe-projet-affiche th,td {
+    text-align: left;
+    padding:17px;
+}
+.groupe-projet-affiche th{
+    font-size: 20px;
+    padding: 20px 20px 20px 20px;
+}
+.groupe-projet-affiche input[type='button']{
+    background: #E27575;
+    border: none;
+    padding: 10px 25px 10px 25px;
+    color: #FFF;
+    box-shadow: 1px 1px 5px #B6B6B6;
+    border-radius: 3px;
+    text-shadow: 1px 1px 1px #9E3F3F;
+    cursor: pointer;
+}
+.groupe-projet-affiche input[type='button']:hover{
+    background: #E34F4F;
 }

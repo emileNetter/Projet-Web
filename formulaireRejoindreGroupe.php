@@ -7,7 +7,8 @@ include'db/projet.php';
 include'header.php';
 $row = recherche_groupe_rejoindre($_GET['id']);
 ?>
-<form method ="post" action ="rejoindreGroupe.php" class="basic-grey">                      
+<form method ="post" action ="rejoindreGroupe.php" class="basic-grey">   
+            <input type="hidden" name ="projet_id" value="<?php echo $_GET['projet_id'] ?>" />
             <label for="titre" style="text-align: center ; font-size: 20px;">
                 Rejoindre le groupe : <?php echo $row['sujet'] ?>
             </label> 

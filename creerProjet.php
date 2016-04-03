@@ -8,8 +8,6 @@
     <body>
         <?php
         include 'header.php';
-        include'utils/utils.php';
-        message_affiche();
         ?>
         
         <form method ="post" action ="projetSauve.php" class="basic-grey">

@@ -29,12 +29,7 @@ and open the template in the editor.
                     <td width="400px"><?php include 'afficheModules.php';?></td>
                     <td width="1100px"><?php include 'afficheProjets.php';?></td>
                 </tr>
-                <tr>
-                    <th>Groupes</th>  
-                </tr>
-                <tr>
-                    <td>Hello</td>
-                </tr>
+                
             </table>
             <?php
         }
@@ -46,7 +41,7 @@ and open the template in the editor.
             <p>Si vous n'avez pas encore de compte, inscrivez-vous, sinon connectez-vous !</p>
             <?php
         }
-//        include'footer.php';    
+   
        ?>
        
     </body>

@@ -23,17 +23,13 @@ and open the template in the editor.
                     <ul style='float:right; list-style-type: none;'>
                         <li><a href='index.php'> Accueil</a></li>
                         <li class='dropdown'>
-                            <a href='mesGroupes.php'> Mes Groupes</a>
-                                <div class='dropdown-content'>
-                                <a href='creerGroupe.php'> Créer un groupe</a>
-                                <a href='candidaterGroupe.php'> Candidater à un groupe</a>
-                                </div>
+                            <a href='myGroup.php'> Mes Groupes</a>
+                               
                         </li>
                         <li class='dropdown'>
                             <a href='mesProjets.php'> Mes Projets</a>
                                 <div class='dropdown-content'>
                                 <a href='creerProjet.php'> Créer un projet</a>
-                                <a href='candidaterProjet.php'> Candidater à un projet</a>
                                 </div>
                         </li>
                         <li><a href='gererCandidature.php'>Gérer les candidatures</a></li>  
@@ -45,9 +41,10 @@ and open the template in the editor.
         else if (isset($_SESSION['prenom']) && $_SESSION['type']== 'enseignant')
         {
             echo "<ul class='ul-nav'>
-                    <li><img class='logo' src='Images/Logo.png' alt='Logo de l\'ENSC' height='50' ></li>
+                    <li><a href='index.php' class='logo-link'><img class='logo' src='Images/Logo.png' alt='Logo de l\'ENSC' height='50' ></a></li>
                     <ul style='float:right; list-style-type: none;'>
-                         <li><a href='gestionProjets.php'> Gérer mes modules</a></li>
+                        <li><a href='ajouterModule.php'> Ajouter un module</a></li>
+                        <li><a href='gererMesModules.php'> Gérer mes modules</a></li>
                         <li><a href='logout.php'>Bonjour $_SESSION[prenom], Déconnexion</a></li>  
                     </ul>
                 </ul> " ;
@@ -74,5 +71,7 @@ and open the template in the editor.
                 </ul>";
         }
         include'utils/utils.php';
+//        unset($_SESSION['message']);
         message_affiche();
+        
            
