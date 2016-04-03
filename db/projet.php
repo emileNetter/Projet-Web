@@ -154,7 +154,13 @@ function group_search_all_but_me()
     $req = mysqli_query($tmp,"SELECT groupes.*, utilisateurs.nom, utilisateurs.prenom FROM groupes,utilisateurs WHERE groupes.id_responsable = utilisateurs.id AND groupes.id_eleve_participant !=".$_SESSION['id']);
     return $req;
 }
-
+function groupe_affiche_infos($id_groupe)
+{
+    $tmp= connect_db();
+    $sql="SELECT groupes_utilisateurs.*,utilisateurs.nom as nom_utilisateur, utilisateurs.prenom, groupes.sujet,groupes.description FROM groupes_utilisateurs, utilisateurs,groupes WHERE groupes_utilisateurs.id_groupe = $_GET[id] AND groupes_utilisateurs.id_utilisateur=utilisateurs.id AND groupes_utilisateurs.id_groupe = groupes.id";
+    $result = mysqli_query($tmp, $sql);
+    return $result;
+}
 function recherche_groupe_rejoindre($id)
 {
     $tmp= connect_db();
